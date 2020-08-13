@@ -1,0 +1,32 @@
+-- Salary by employee
+SELECT  emp.emp_no,
+        emp.last_name,
+        emp.first_name,
+        emp.sex,
+        sal.salary
+FROM employees as emp
+    LEFT JOIN salaries as sal
+    ON (emp.emp_no = sal.emp_no)
+ORDER BY emp.emp_no;
+
+-- Employees hired in 1986
+SELECT first_name, last_name, hire_date
+FROM employees
+WHERE hire_date BETWEEN '1986-01-01' AND '1986-12-31';
+
+-- Employees whose first name is "Hercules" and last name begins with "B"
+SELECT first_name, last_name, birth_date, sex
+FROM employees
+WHERE first_name = 'Hercules'
+AND last_name LIKE 'B%';
+
+-- The frequency of employee last names
+SELECT last_name, COUNT(last_name)
+FROM employees
+GROUP BY last_name
+
+-- Employee ID number
+SELECT emp_no, first_name, last_name, sex
+FROM employees
+WHERE emp_no = '49992'
+;
